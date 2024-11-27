@@ -1,57 +1,8 @@
 import io.restassured.RestAssured;
-import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-public class Teste1 {
-
-    @Test
-    public void testePrimeiro() {
-        String url = "http://localhost:8080/api/primeiraApi";
-
-        RestAssured.given()
-                .log().all()
-                .when()
-                .get(url)
-                .then()
-                .log().all()
-                .assertThat()
-                .statusCode(200)
-                .body(Matchers.containsString("sucesso"));
-    }
-
-    @Test
-    public void testeSegundo() {
-        String url = "http://localhost:8080/api/primeiraApiV1";
-        String palavra = "teste";
-
-        RestAssured.given()
-                .queryParam("palavra", palavra)
-                .log().all()
-                .when()
-                .get(url)
-                .then()
-                .log().all()
-                .assertThat()
-                .statusCode(200)
-                .body(Matchers.containsString(palavra));
-    }
-
-    @Test
-    public void testeTerceiro() {
-        String pathParam = "Testando";
-        String url = "http://localhost:8080/api/primeiraApiV2/" + pathParam;
-
-        RestAssured.given()
-                .log().all()
-                .when()
-                .get(url)
-                .then()
-                .log().all()
-                .assertThat()
-                .statusCode(200)
-                .body(Matchers.containsString(pathParam));
-    }
+public class TesteExerciciosAPI {
 
     @Test
     public void testeQuarto() {
